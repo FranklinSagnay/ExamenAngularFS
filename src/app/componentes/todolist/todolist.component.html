@@ -1,0 +1,59 @@
+<p>todolist works!</p>
+<div class="px-4 pt-5 my-5 text-center border-bottom">
+  <h1 class="display-4 fw-bold">TODO LIST</h1>
+  <div class="col-lg-6 mx-auto">
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Ingrese la Tarea"
+        formControlName="nombre"
+        [(ngModel)]="tareas"
+      />
+      <button
+        type="submit"
+        class="btn btn-primary btn-lg px-4 me-sm-3"
+        (click)="(guardarTarea)"
+      >
+        Agregar
+      </button>
+    </div>
+
+    <div class="tab-content" id="ex1-content">
+      <div
+        class="tab-pane fade show active"
+        id="ex1-tabs-1"
+        role="tabpanel"
+        aria-labelledby="ex1-tab-1"
+      >
+        <table class="table table-striped">
+          <tbody>
+            <tr *ngFor="let tarea of lista; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ tarea.nombre }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <ul class="list-group mb-0" *ngFor="let tarea of lista">
+          <li
+            class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
+            style="background-color: #f4f6f7"
+          >
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              aria-label="..."
+              checked
+            />
+            <s>[{{ tarea.nombre }}</s>
+            <div class="col-8"></div>
+            <button type="text" class="btn btn-primary">Eliminar</button>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
